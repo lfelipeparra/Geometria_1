@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Geometria</string>
+    <string name="circulo">Círculo</string>
+    <string name="cuadrado">Cuadrado</string>
+    <string name="triangulo">Triángulo</string>
+    <string name="cubo">Cubo</string>
+    <string name="aviso1">SELECCIONE UNA FIGURA:</string>
+    <string name="aviso2">Ingrese longitud del lado:</string>
+    <string name="aviso3">Longitud en cm</string>
+    <string name="aviso4">Ingrese longitud del radio:</string>
+    <string name="resultados">RESULTADOS</string>
+    <string name="empty">Longitud vacía</string>
+</resources>
