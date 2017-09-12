@@ -1,11 +1,9 @@
 package com.parra.lfelipe.geometria;
 
 import android.content.Context;
-import android.icu.text.DecimalFormat;
-import android.os.Build;
-import android.support.annotation.RequiresApi;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.design.widget.TextInputLayout;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -19,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView tAviso, tResultados;
     private int selector=1;
     private double area, perimetro, volumen;
+    private TextInputLayout tilLongiud;
     private EditText eLongitud;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
         tAviso = (TextView) findViewById(R.id.tAviso);
         eLongitud = (EditText) findViewById(R.id.eLongitud);
         tResultados = (TextView) findViewById(R.id.tResultados);
+        tilLongiud = (TextInputLayout) findViewById(R.id.tilLongitud);
+        eLongitud.setFocusable(true);
     }
 
     public void cambiarFigura(View view) {
@@ -58,31 +59,32 @@ public class MainActivity extends AppCompatActivity {
     public void calcularGeo(View view) {
         if(!eLongitud.getText().toString().equals("")){
             int x = Integer.parseInt(eLongitud.getText().toString());
+            tilLongiud.setError(null);
             switch (selector){
                 case 1:
                     area = x*x;
                     perimetro = x*4;
-                    tResultados.setText("Area = " + Double.toString(Math.round(area))
+                    tResultados.setText("Cuadrado:\nArea = " + Double.toString(Math.round(area))
                             + "\nPerímetro = " + Double.toString(Math.round(perimetro))
                             +"\nVolumen = No definido" );
                     break;
                 case 2:
                     area = Math.PI*Math.pow(x,2);
                     perimetro = Math.PI*2*x;
-                    tResultados.setText("Area = " + Double.toString(Math.round(area))
+                    tResultados.setText("Círculo:\nArea = " + Double.toString(Math.round(area))
                             + "\nPerímetro = " + Double.toString(Math.round(perimetro))
                             +"\nVolumen = No definido" );
                     break;
                 case 3:
                     area = x*x/2;
                     perimetro = 2*x+Math.sqrt(2)*x;
-                    tResultados.setText("Area = " + Double.toString(Math.round(area))
+                    tResultados.setText("Triángulo:\nArea = " + Double.toString(Math.round(area))
                             + "\nPerímetro = " + Double.toString(Math.round(perimetro))
                             +"\nVolumen = No definido" );
                     break;
                 case 4:
                     volumen = Math.pow(x,3);
-                    tResultados.setText("Area = No definido"
+                    tResultados.setText("Cubo:\nArea = No definido"
                             + "\nPerímetro = No definido"
                             +"\nVolumen = " + Double.toString(Math.round(volumen)));
                     break;
@@ -90,10 +92,12 @@ public class MainActivity extends AppCompatActivity {
         }else{
             Context context = getApplicationContext();
             String text = getResources().getString(R.string.empty);
+            String error = getResources().getString(R.string.error);
             int duration = Toast.LENGTH_SHORT;
 
             Toast toast = Toast.makeText(context, text, duration);
             toast.show();
+            tilLongiud.setError(error);
         }
     }
 }

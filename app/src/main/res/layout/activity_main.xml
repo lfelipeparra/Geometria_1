@@ -74,20 +74,27 @@
         android:orientation="vertical">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content">
             <TextView
+                android:layout_gravity="center"
                 android:id="@+id/tAviso"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/aviso2"
                 android:textColor="@color/black"/>
-            <EditText
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/aviso3"
-                android:inputType="number"
-                android:id="@+id/eLongitud"/>
+                android:orientation="horizontal"
+                android:id="@+id/tilLongitud">
+                <EditText
+                    android:hint="@string/aviso3"
+                    android:ems="10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:id="@+id/eLongitud"/>
+            </android.support.design.widget.TextInputLayout>
         </LinearLayout>
         <Button
             android:layout_gravity="center"
@@ -111,3 +118,5 @@
             android:id="@+id/tResultados"/>
     </LinearLayout>
 </LinearLayout>
+
+

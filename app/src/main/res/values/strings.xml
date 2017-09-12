@@ -10,4 +10,5 @@
     <string name="aviso4">Ingrese longitud del radio:</string>
     <string name="resultados">RESULTADOS</string>
     <string name="empty">Longitud vacía</string>
+    <string name="error">Campo vació</string>
 </resources>
